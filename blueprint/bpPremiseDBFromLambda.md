@@ -10,10 +10,10 @@ This Genesys Cloud Blueprint is a guide to enable your AWS resources in a virtua
 * **AWS Virtual Private Cloud** - Amazon Virtual Private Cloud (VPC) provides a private internal network in the cloud.
 * **AWS IAM** - AWS Identity and Access Management (IAM) manages access to AWS services and resources. You set up the permissions to allow and deny access to AWS resources for the VPC and for Lambda.
 * **AWS Lambda** - AWS Lambda is a compute service in AWS. This Blueprint enables you to access on-premises resources from AWS Lambda running in a VPC.
-* **Network Gateways** - This Blueprint uses IPSec/strongSwan. strongSwan is an OpenSource IPsec implementation.
-* **PostgreSQL** - An open source object-relational database system.  
+* **Network Gateways** - This Blueprint uses IPSec/strongSwan. strongSwan is an open source IPSec implementation.
+* **PostgreSQL Server** - An open source object-relational database system.  
 
-To learn more the various technologies referred to in the Blueprint, see the *Additional resources* section.
+To learn more the various technologies referred to in the Blueprint, see the [*Additional resources*](#Additional-resources) section.
 
 ## Plan the solution
 This solution requires permissions and configuration with both Genesys Cloud and AWS.
@@ -58,7 +58,7 @@ The AWS Lambda access from a VPC to an on-premises database deployment has the f
 ## Create or repurpose a VPC where the Lambda can run
 To achieve the highest level of security and privacy, you create a Lambda instance in a virtual private cloud (VPC), an internal network in the cloud. Computers with the necessary security group permissions can communicate freely within the VPC.
 
-After creating the VPC, you create a sub-net, which serves as a network segment where connections between computers are resolved without going through the network gateway.
+After creating the VPC, you create a subnet, which serves as a network segment where connections between computers are resolved without going through the network gateway.
 ### Create a VPC
 
 To create the VPC, do the following steps:
@@ -79,7 +79,7 @@ To create the VPC, do the following steps:
 
 ### Create a subnet for your VPC
 
-To create the sub-net for your new VPC, do the following steps:
+To create the subnet for your new VPC, do the following steps:
 
 1. In the AWS Console, select **Your VPCs** and then select **Subnets** from the navigation pane on the left side of the window.
 2. Click **Create subnet**.
@@ -104,7 +104,7 @@ The customer gateway is primarily a path from the internet to your home network.
 4. In the **Routing** field, select "Static".
 5. In the **IP Address** field, enter the public facing IPv4 address for your network. To locate this address, browse to https://whatismyipaddress.com/ from inside your network.
 
->**Tip** For the purpose of this tutorial, you need to enter only the public facing ID for your  home network.
+>**Tip** For the purpose of this tutorial, you need to enter only the public facing ID for your home network.
 
 6. Click **Create Customer Gateway** and then **Close**.
 
@@ -215,7 +215,7 @@ include /etc/ipsec.d/<your_vpn_name>.conf
 ```
   52.73.255.8 : PSK "tS11pZ8haqpMnlgqhfBpDwh1K0aqJ4lv"
   54.165.167.252 : PSK "LYU0JGK_V4kgBOXDGyKS8h1r2qKuBzyv"
-  ```
+```
 
 4. Update the **/etc/sysctl.conf** file by adding the following lines:
 
@@ -260,14 +260,12 @@ dpdaction=restart
 authby=psk
 leftsubnet=10.0.0.0/24   # Internal Network CIDR block
 auto=start
-```
-```
+
 conn tunnel1
 also=vpc
 right= 3.226.212.127   # Public Ip Address of Tunnel #1
 rightsubnet=10.2.0.0/24   # VPC Network CIDR block
-```
-```
+
 conn tunnel2
 also=vpc
 right=34.237.108.153   # Public Ip Address of Tunnel #2
@@ -285,7 +283,7 @@ To verify that your tunnels are in the **UP** status, do the following steps:
   1. From left-side navigation pane in the Amazon Console, click **Site-to-Site VPN**.
   2. Click **Select your VPN Connection**.
   3. Click the **Tunnel Details Tab** from the lower section of the window.
-  4.	Verify that both of your tunnels show their status as **UP**.
+  4. Verify that both of your tunnels show their status as **UP**.
 
 ![Tunnel status up](images/bpTunnelsUp.png)
 
