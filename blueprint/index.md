@@ -398,7 +398,8 @@ To create your AWS Lambda instance, open a terminal window and do the following 
 
   ```
 $ git clone git@github.com:MyPureCloud/premise-postgres-lambda-example.git
-  ```
+```
+
     ```
 $ cd ./premise-lambda-example
 ```
