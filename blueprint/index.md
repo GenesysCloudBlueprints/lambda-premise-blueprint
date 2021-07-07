@@ -77,11 +77,11 @@ If you configure your local modem to forward 500/UDP and 50/TCP to your local ga
 
 ## Implementation steps
 
-* [Create or repurpose a VPC where the AWS Lambda can run](#create-or-repurpose-a-VPC-where-the-AWS-Lambda-can-run "Opens the Create or repurpose a VPC where the AWS Lambda can run section")
-* [Build a bridge between your on-premises network and your VPC](#build-a-bridge-between-your-on-premises-network-and-your-VPC "Opens the Build a bridge between your on-premises network and your VPC section")
-* [Install and configure IPSec/Strongswan in your on-premises network](#install-and-configure-IPSec/Strongswan-in-your-on-premises-network "Opens the Install and configure IPSec/Strongswan in your on-premises network section")
+* [Create or repurpose a VPC where the AWS Lambda can run](#create-or-repurpose-a-vpc-where-the-aws-lambda-can-run "Opens the Create or repurpose a VPC where the AWS Lambda can run section")
+* [Build a bridge between your on-premises network and your VPC](#build-a-bridge-between-your-on-premises-network-and-your-vpc "Opens the Build a bridge between your on-premises network and your VPC section")
+* [Install and configure strongSwan IPSec in your on-premises network](#install-and-configure-strongswan-ipsec-in-your-on-premises-network "Opens the Install and configure strongSwan IPSec in your on-premises network section")
 * [Configure your database to use your new local gateway](#configure-your-database-to-use-your-new-local-gateway "Opens the Configure your database to use your new local gateway section")
-* [Configure and test your AWS Lambda instance](#configure-and-test-your-AWS-Lambda-instance "Opens the Configure and test your AWS Lambda instance section")
+* [Configure and test your AWS Lambda instance](#configure-and-test-your-aws-lambda-instance "Opens the Configure and test your AWS Lambda instance section")
 
 ### Create or repurpose a VPC where the AWS Lambda can run
 To achieve the highest level of security and privacy, you create an AWS Lambda instance in a virtual private cloud (VPC), an internal network in the cloud. Computers with the necessary security group permissions can communicate freely within the VPC.
@@ -222,7 +222,7 @@ To configure the VPN connection, do the following steps:
 4.	From the **Vendor** menu, select **Generic**.
 5.	Click **Download**. Your browser saves a file with a name similar to "vpn-XXXXXXXXXXXXXX.txt". this file contains the configuration necessary to connect to your tunnels.
 
-### Install and configure IPSec/Strongswan in your on-premises network
+### Install and configure strongSwan IPSec in your on-premises network
 
 strongSwan is a multi-platform IPsec implementation.
 * For more information about strongSwan, see https://wiki.strongswan.org/projects/strongswan/wiki/IntroductionTostrongSwan.
