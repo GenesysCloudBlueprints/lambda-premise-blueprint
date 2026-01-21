@@ -8,6 +8,13 @@ category: 6
 summary: |
   This Genesys Cloud Developer Blueprint is a guide to enable your AWS resources in a virtual private cloud (VPC) to communicate with computers in your on-premises data center. You can also choose to configure your AWS Lambda instance as a Genesys Cloud data action, as explained in [Example AWS Lambda data action with on-premises solution](https://help.mypurecloud.com/?p=209728 "Opens the Example AWS Lambda data action with on-premises solution article"). Combining these procedures enables you to build integrations with interactions entering your contact center without exposing your network.
 ---
+:::{"alert":"primary","title":"About Genesys Cloud Blueprints","autoCollapse":false} 
+Genesys Cloud blueprints were built to help you jump-start building an application or integrating with a third-party partner. 
+Blueprints are meant to outline how to build and deploy your solutions, not a production-ready turn-key solution.
+ 
+For more details on Genesys Cloud blueprint support and practices 
+please see our Genesys Cloud blueprint [FAQ](https://developer.genesys.cloud/blueprints/faq)sheet.
+:::
 
 This Genesys Cloud Developer Blueprint is a guide to enable your AWS resources in a virtual private cloud (VPC) to communicate with computers in your on-premises data center. You can also choose to configure your AWS Lambda instance as a Genesys Cloud data action, as explained in [Example AWS Lambda data action with on-premises solution](https://help.mypurecloud.com/?p=209728 "Opens the Example AWS Lambda data action with on-premises solution article"). Combining these procedures enables you to build integrations with interactions entering your contact center without exposing your network.
 
